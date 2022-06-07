@@ -95,7 +95,7 @@ ll.String()
 ```
 
 ```go
-// Reverse() the linked list
+// Reverse() reverses the linked list
 // 1 -> 2 -> 3
 ll.Reverse()
 // 3 -> 2 -> 1
