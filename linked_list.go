@@ -47,6 +47,31 @@ func (ll *LinkedList) Remove(value interface{}) {
 	}
 }
 
+// RemoveFirst is a function
+func (ll *LinkedList) RemoveFirst() {
+	ll.head = ll.head.next
+}
+
+// RemoveLast is a function
+func (ll *LinkedList) RemoveLast() {
+	node := ll.head
+	for node.next != nil {
+		node = node.next
+	}
+	node.next = nil
+	ll.tail = node
+}
+
+// RemoveAt is a function
+func (ll *LinkedList) RemoveAt(index int) {
+	node := ll.head
+	for index > 0 {
+		node = node.next
+		index--
+	}
+	ll.head = node.next
+}
+
 // RemoveAll is a function
 func (ll *LinkedList) RemoveAll(value interface{}) {
 	node := ll.head
@@ -103,6 +128,19 @@ func (ll *LinkedList) PrintAll() {
 	fmt.Println()
 }
 
+// Reverse is a function
+func (ll *LinkedList) Reverse() {
+	node := ll.head
+	var prev *Node
+	for node != nil {
+		temp := node.next
+		node.next = prev
+		prev = node
+		node = temp
+	}
+	ll.head = prev
+}
+
 // IndexOf is a function
 func (ll *LinkedList) IndexOf(value interface{}) int {
 	index := 0
@@ -115,4 +153,10 @@ func (ll *LinkedList) IndexOf(value interface{}) int {
 		node = node.next
 	}
 	return -1
+}
+
+// Clear is a function
+func (ll *LinkedList) Clear() {
+	ll.head = nil
+	ll.tail = nil
 }

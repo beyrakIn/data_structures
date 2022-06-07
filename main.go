@@ -9,5 +9,7 @@ func main() {
 	ll.Add(4)
 	ll.Add(5)
 	ll.PrintAll()
+	ll.Reverse()
+	ll.PrintAll()
 
 }
